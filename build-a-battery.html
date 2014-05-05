@@ -3,11 +3,20 @@
 </head>
 
 <body>
-  {{> hello}}
+	<div class="container">
+	  {{> hello}}
+	</div>
 </body>
 
 <template name="hello">
-  <h1>Hello World!</h1>
-  {{greeting}}
-  <input type="button" value="Click" />
+	<div class="row">
+	  <h1 class="text-center">{{greeting}}</h1>
+	</div>
+  <div class="battery">
+  	<div class="power">
+	  	<div class="electrode anode"></div>
+	  	<div class="electrode electrolyte"></div>
+	  	<div class="electrode cathode"></div>
+  	</div>
+  </div>
 </template>

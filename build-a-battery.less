@@ -1,0 +1,83 @@
+@aqua:  #7FDBFF;
+@blue:  #0074D9;
+@navy:  #001F3F;
+@teal:  #39CCCC;
+@green: #2ECC40;
+@olive: #3D9970;
+@lime:  #01FF70;
+
+@yellow:  #FFDC00;
+@orange:  #FF851B;
+@red:     #FF4136;
+@fuchsia: #F012BE;
+@purple:  #B10DC9;
+@maroon:  #85144B;
+
+@white:  #fff;
+@silver: #ddd;
+@gray:   #aaa;
+@black:  #111;
+
+@battWidth: 400px;
+@electrodeWidth: @battWidth * .6 ;
+@battBorderThickness: 7px;
+@battHeight: @battWidth * .4;
+
+.battery {
+  margin-left: auto;
+  margin-right: auto;
+  width: @battWidth;
+  height: @battHeight;
+  border: @battBorderThickness solid @gray;
+  border-radius: 10px;
+  position: relative;
+  margin-top: 30px;
+  background-color: #fff;
+}
+
+.battery:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: @battHeight * 0.3;
+  left: @battWidth + @battBorderThickness;
+  right: 0;
+  margin: 0 auto;
+  width: 10px;
+  height: 40px;
+  background: @gray;
+  border-radius: 2px 2px 0 0;
+}
+
+.power {
+  position: absolute;
+  z-index: 2;
+  left: 5px;
+  top: 5px;
+  right: 5px;
+  bottom: 5px;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.electrode{
+  position: absolute;
+  top:0;
+  bottom: 0;
+}
+
+.cathode{
+  left: @electrodeWidth;
+  right: 0;
+  background: @teal;  
+}
+.anode{
+  left:0;
+  right: @electrodeWidth;
+  background: @red;  
+}
+.electrolyte{
+  background: @lime;
+  left: @electrodeWidth *.65;
+  right: @electrodeWidth *.65;
+}
