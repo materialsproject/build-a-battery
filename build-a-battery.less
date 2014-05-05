@@ -64,6 +64,11 @@
   position: absolute;
   top:0;
   bottom: 0;
+
+  .batt-label{
+    color: @white;
+    margin: @battHeight/3 auto;
+  }
 }
 
 .cathode{
@@ -77,7 +82,7 @@
   background: @red;  
 }
 .electrolyte{
-  background: @lime;
+  background: darken(@lime, 10%);
   left: @electrodeWidth *.65;
   right: @electrodeWidth *.65;
 }
