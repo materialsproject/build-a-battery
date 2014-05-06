@@ -4,11 +4,11 @@
 
 <body>
 	<div class="container">
-	  {{> hello}}
+	  {{> battery}}
 	</div>
 </body>
 
-<template name="hello">
+<template name="battery">
 	<div class="row">
 	  <h1 class="text-center">{{greeting}}</h1>
 	</div>
@@ -31,6 +31,7 @@
 	  	<div class="electrode cathode">
 	  		<div class="charge">+</div>
 	  		<h4 class="batt-label">cathode</h4>
+	  		<div class="slider"></div>
 	  	</div>
   	</div>
   </div>
