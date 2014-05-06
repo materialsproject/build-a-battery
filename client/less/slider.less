@@ -5,6 +5,8 @@
 
 /* =====================================================================================================================
 // RangeSlider */
+@import "elements.less";
+@import "variables.less";
 
 .irs {
     position: relative; display: block;
@@ -40,6 +42,8 @@
             left: 10px;
             cursor: pointer;
             background: #eee;
+            width: 6px;
+            .rounded();
             box-shadow: 0px 1px 1px rgb(100, 100, 100);
         }
             .irs-slider.single:hover {
@@ -120,16 +124,6 @@
         color: #000;
     }
 
-
-
-    /* Ion.RangeSlider, Flat UI Skin
-// css version 1.8.1
-// by Denis Ineshin | ionden.com
-// ===================================================================================================================*/
-
-/* =====================================================================================================================
-// Skin details */
-
 .irs-line-mid,
 .irs-line-left,
 .irs-line-right,
@@ -145,7 +139,11 @@
     height: 60px;
 }
 .irs-line {
-    height: 10px; top: 25px;
+    .rounded(5px);
+    .inner-shadow(0px, 0px, 1px, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    height: 8px; 
+    top: 25px;
 }
     .irs-line-left {
         height: 12px;
