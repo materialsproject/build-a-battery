@@ -33,20 +33,20 @@
   position: relative;
   margin-top: 30px;
   background-color: #fff;
-}
 
-.battery:before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: @battHeight * 0.3;
-  left: @battWidth + @battBorderThickness;
-  right: 0;
-  margin: 0 auto;
-  width: 10px;
-  height: 40px;
-  background: @gray;
-  border-radius: 2px 2px 0 0;
+  &:before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: @battHeight * 0.35;
+    left: @battWidth + @battBorderThickness;
+    right: 0;
+    margin: 0 auto;
+    width: 10px;
+    height: 40px;
+    background: @gray;
+    border-radius: 2px 2px 0 0;
+  }
 }
 
 .power {
@@ -83,7 +83,7 @@
   }
 
   select{
-    margin-top: 5px;
+    margin-top: 20px;
     width: @electrodeWidth * .4;
   }
 }
