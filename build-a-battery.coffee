@@ -1,9 +1,11 @@
+@Electrodes = new Meteor.Collection("electrodes")
+
 if Meteor.isClient
   Template.battery.greeting = ->
     "Welcome to build-a-battery."
 
   Template.battery.rendered = ->
-    $(".slider").ionRangeSlider()
+    $(".slider").ionRangeSlider postfix: "V"
 
   Template.battery.events 
     'click input': ->
@@ -11,3 +13,4 @@ if Meteor.isClient
 
 if Meteor.isServer 
   Meteor.startup ->
+
