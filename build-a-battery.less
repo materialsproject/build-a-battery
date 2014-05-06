@@ -64,10 +64,22 @@
   position: absolute;
   top:0;
   bottom: 0;
+  text-align: center;
+  color: @white;
+  
+  .charge{
+    font-size: 40px;
+    margin-top: 20px;
+    font-weight: bold;
+  }
 
-  .batt-label{
-    color: @white;
-    margin: @battHeight/3 auto;
+  center{
+    margin-top:-20px;    
+  }
+
+  select{
+    margin-top: 5px;
+    width: @electrodeWidth * .4;
   }
 }
 
@@ -85,4 +97,8 @@
   background: darken(@lime, 10%);
   left: @electrodeWidth *.65;
   right: @electrodeWidth *.65;
+  
+  .batt-label{
+    margin-top: 50px;
+  }
 }
