@@ -3,38 +3,38 @@
 </head>
 
 <body>
-	<div class="container">
-	  {{> battery}}
-	</div>
+  <div class="container">
+    <div class="row">
+      <h1 class="text-center">Build a Battery</h1>
+    </div>
+    <div class="row">
+      {{> battery}}
+    </div>
+  </div>
 </body>
 
 <template name="battery">
-	<div class="row">
-	  <h1 class="text-center">{{greeting}}</h1>
-	</div>
-	<div class="row">
-	  <div class="battery hover-stop shake-constant">
-	  	<div class="power">
-		  	<div class="electrode anode">
-		  		<div class="charge">-</div>
-		  		<h4 class="batt-label">anode</h4>
-		  		<center>
-			  		<select>
-			  			<option>graphite</option>
-			  			<option>Si</option>
-			  			<option>Li</option>
-			  		</select>
-		  		</center>
-		  	</div>
-		  	<div class="electrode electrolyte">
-		  		<h6 class="batt-label">electrolyte</h6>
-		  	</div>
-		  	<div class="electrode cathode">
-		  		<div class="charge">+</div>
-		  		<h4 class="batt-label">cathode</h4>
-		  		<div class="slider"></div>
-		  	</div>
-	  	</div>
-	  </div>
-	</div>
+  <div class="battery hover-stop shake-constant">
+    <div class="power">
+      <div class="electrode anode">
+        <div class="charge">-</div>
+        <h4 class="batt-label">anode</h4>
+        <center>
+          <select>
+            <option>graphite</option>
+            <option>Si</option>
+            <option>Li</option>
+          </select>
+        </center>
+      </div>
+      <div class="electrode electrolyte">
+        <h6 class="batt-label">electrolyte</h6>
+      </div>
+      <div class="electrode cathode">
+        <div class="charge">+</div>
+        <h4 class="batt-label">cathode</h4>
+        <div class="slider"></div>
+      </div>
+    </div>
+  </div>
 </template>
