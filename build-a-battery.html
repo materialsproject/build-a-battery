@@ -7,11 +7,21 @@
     <div class="row">
       <h1 class="text-center">Build a Battery</h1>
     </div>
-    <div class="row">
-      {{> battery}}
-    </div>
+    {{> main }}
   </div>
 </body>
+
+<template name="main">
+  <div class="row">
+    {{> battery}}
+  </div>
+  <div class="row controls">
+    {{> controls}}
+  </div>
+  <div class="row output">
+    {{> output}}
+  </div>
+</template>
 
 <template name="battery">
   <div class="battery hover-stop shake-constant">
@@ -33,8 +43,20 @@
       <div class="electrode cathode">
         <div class="charge">+</div>
         <h4 class="batt-label">cathode</h4>
-        <div class="slider"></div>
+        <div class="voltage-slider"></div>
       </div>
     </div>
   </div>
 </template>
+
+<template name="controls">
+  <div class="capacity-slider"> </div>
+  <center>
+    <h4>Capacity</h4>
+  </center>
+</template>
+
+<template name="output">
+  <div id="meter"></div>
+</template>
+

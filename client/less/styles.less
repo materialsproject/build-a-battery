@@ -1,8 +1,8 @@
 @import "variables.less";
+@import "elements.less";
 
 .battery {
-  margin-left: auto;
-  margin-right: auto;
+  margin:  0 auto 20px auto;
   width: @battWidth;
   height: @battHeight;
   border: @battBorderThickness solid @gray;
@@ -82,5 +82,27 @@
   
   .batt-label{
     margin-top: 50px;
+  }
+}
+
+#meter{
+  margin: 0 auto;
+  height: 180px;
+}
+
+.controls{
+  margin-bottom: 30px;
+  border-bottom: 1px solid @gray;
+  padding-bottom: 20px;
+
+  .irs{
+    width: 140px;    
+    margin: 0 auto;
+    .irs-line{
+      border: 1px solid @green;
+      .irs-line-mid, .irs-line-right, .irs-line-left{
+        background: lighten(@green, 30%);        
+      }
+    }
   }
 }
