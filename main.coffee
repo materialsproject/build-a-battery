@@ -46,4 +46,3 @@ if Meteor.isClient
       postfix: "Ah/L"
       onFinish: onCapacityChange
       step: .5
-      align:"vertical"

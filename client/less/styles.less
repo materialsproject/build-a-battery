@@ -1,6 +1,27 @@
 @import "variables.less";
 @import "elements.less";
 
+
+.hero-unit {
+  background: @red;
+  .border-radius(0);
+
+  img{
+    max-width: 600px;
+  }
+}
+
+h1{
+  font-family:"Dosis", "Helvetica"; 
+  border-bottom: 1px solid #eee;
+  font-size: 40px;
+  letter-spacing: -2pt; 
+  text-transform: uppercase;
+  font-weight:700;
+  padding-bottom: 30px;
+  position: relative;
+}
+
 .battery {
   margin:  0 auto 20px auto;
   width: @battWidth;
@@ -68,15 +89,15 @@
 .cathode{
   left: @electrodeWidth;
   right: 0;
-  background: @teal;  
+  background: @lightblue;  
 }
 .anode{
   left:0;
   right: @electrodeWidth;
-  background: @red;  
+  background: @darkyellow;  
 }
 .electrolyte{
-  background: darken(@lime, 10%);
+  background: @darkgreen;
   left: @electrodeWidth *.65;
   right: @electrodeWidth *.65;
   
@@ -92,16 +113,16 @@
 
 .controls{
   margin-bottom: 30px;
-  border-bottom: 1px solid @gray;
+  border-bottom: 1px solid #eee;
   padding-bottom: 20px;
 
   .irs{
     width: 140px;    
     margin: 0 auto;
     .irs-line{
-      border: 1px solid @green;
+      border: 1px solid @lightblue;
       .irs-line-mid, .irs-line-right, .irs-line-left{
-        background: lighten(@green, 30%);        
+        background: lighten(@lightblue, 10%);        
       }
     }
   }
