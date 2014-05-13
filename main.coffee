@@ -5,7 +5,7 @@ if Meteor.isClient
     @capacity = 10
     @voltage = 10
 
-    onVoltageChange = ({fromNumber}) ->
+    onVoltageChange = ({fromNumber}) =>
       stable = fromNumber < 30
       unstable = fromNumber > 60
       mildUnstable = fromNumber > 30 and fromNumber < 60
@@ -18,10 +18,12 @@ if Meteor.isClient
           .removeClass "shake-vertical"
       else if unstable
         $batt.addClass "shake shake-vertical"
-      refreshGauge voltage: fromNumber
+      @voltage = fromNumber
+      refreshGauge {@voltage}
 
-    onCapacityChange = ({fromNumber}) ->
-      refreshGauge capacity: fromNumber
+    onCapacityChange = ({fromNumber}) =>
+      @capacity = fromNumber
+      refreshGauge {@capacity}
 
     refreshGauge = ({voltage, capacity}) =>
       voltage ?= @voltage
@@ -32,7 +34,7 @@ if Meteor.isClient
       id: "meter"
       value: @capacity * @voltage
       min: 0
-      max: 3000
+      max: 10000
       title: "Battery Performance"
       label: "Energy Density"
       levelColors: "#E2591E #E8CC2D #AEE25D #20CD5A".split " "
