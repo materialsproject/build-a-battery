@@ -12,57 +12,6 @@
   <div class="container">
     {{> main }}
   </div>
-  <footer class="footer">
-    by <a href="https://materialsproject.org" target="_blank">The Materials Project</a>
-  </footer>
+  {{> footer }}
 </body>
-
-<template name="main">
-  <div class="row">
-    {{> battery}}
-  </div>
-  <div class="row controls">
-    {{> controls}}
-  </div>
-  <div class="row output">
-    {{> output}}
-  </div>
-</template>
-
-<template name="battery">
-  <div class="battery hover-stop shake-constant">
-    <div class="power">
-      <div class="electrode anode">
-        <div class="charge">-</div>
-        <h4 class="batt-label">anode</h4>
-        <center>
-          <select>
-            <option>graphite</option>
-            <option>Si</option>
-            <option>Li</option>
-          </select>
-        </center>
-      </div>
-      <div class="electrode electrolyte">
-        <h6 class="batt-label">electrolyte</h6>
-      </div>
-      <div class="electrode cathode">
-        <div class="charge">+</div>
-        <h4 class="batt-label">cathode</h4>
-        <div class="voltage-slider"></div>
-      </div>
-    </div>
-  </div>
-</template>
-
-<template name="controls">
-  <div class="capacity-slider"> </div>
-  <center>
-    <h4>Capacity</h4>
-  </center>
-</template>
-
-<template name="output">
-  <div id="meter"></div>
-</template>
 
