@@ -2,25 +2,48 @@
 @import "elements.less";
 
 
-.hero-unit {
+a{ color: @linkColor; }
+
+.header {
   background: @red;
   .border-radius(0);
+  margin-bottom: 0;
 
   img{
     max-width: 600px;
   }
+
 }
 
-h1{
-  font-family:"Dosis", "Helvetica"; 
-  border-bottom: 1px solid #eee;
-  font-size: 40px;
-  letter-spacing: -2pt; 
-  text-transform: uppercase;
-  font-weight:700;
-  padding-bottom: 30px;
-  position: relative;
+.about{
+  padding: 10px 0;
+  font-size: 20px;
+  border-top: 1px solid darken(@red, 20%);
+  border-bottom: 1px solid darken(@red, 20%);
+  background: lighten(@red, 30%);
+  cursor: pointer;
+
+  #about-content{ 
+    border-top: 1px solid darken(@red, 10%);
+    margin-top: 10px;
+    display: none;
+    font-family: "Arvo";
+
+    p{ font-size: 14px; }
+
+    h6 { 
+      // color: firebrick; 
+      color : brown;
+      text-transform: uppercase;
+      letter-spacing: 2pt;
+    }
+  }
+
+  &:hover{
+    background: lighten(@red, 25%);    
+  }
 }
+
 
 .battery {
   margin:  0 auto 20px auto;

@@ -1,9 +1,15 @@
-@Electrodes = new Meteor.Collection("electrodes")
+@ElectrodesCollection = new Meteor.Collection("electrodes")
 
 if Meteor.isClient
+  Template.about.events 
+    'click .about': ({target}) ->
+      $("#about-content").toggle "blind", {
+        easing: "easeInOutSine"}, 300
+
   Template.main.rendered = ->
     @capacity = 10
     @voltage = 10
+    @anode = new Electrode name: "graphite"
 
     onVoltageChange = ({fromNumber}) =>
       stable = fromNumber < 30
