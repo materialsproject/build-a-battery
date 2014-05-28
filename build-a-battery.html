@@ -11,7 +11,15 @@
   </div>
   {{> about }}
   <div class="container">
-    {{> main }}
+    <div class="row">
+      {{> battery}}
+    </div>
+    <div class="row controls">
+      {{> controls}}
+    </div>
+    <div class="row output">
+      {{> output}}
+    </div>
   </div>
   {{> footer }}
 </body>
