@@ -1,17 +1,19 @@
 @ElectrodesCollection = new Meteor.Collection("electrodes")
 
+
 if Meteor.isClient
   Template.about.events 
     'click .about': ({target}) ->
       $("#about-content").toggle "blind", {
         easing: "easeInOutSine"}, 300
 
-  Template.main.rendered = ->
+  Template.battery.rendered = ->
     @capacity = 10
     @voltage = 10
     @anode = new Electrode name: "graphite"
 
-    onVoltageChange = ({fromNumber}) =>
+    onVoltageChange = ({fromNumber, toNumber}) =>
+      Session.set "voltage", {gte: fromNumber, lte: toNumber}
       stable = fromNumber < 30
       unstable = fromNumber > 60
       mildUnstable = fromNumber > 30 and fromNumber < 60
@@ -27,7 +29,7 @@ if Meteor.isClient
       @voltage = fromNumber
       refreshGauge {@voltage}
 
-    onCapacityChange = ({fromNumber}) =>
+    onCapacityChange = ({fromNumber, toNumber}) =>
       @capacity = fromNumber
       refreshGauge {@capacity}
 
@@ -49,8 +51,10 @@ if Meteor.isClient
     $(".voltage-slider").ionRangeSlider 
       postfix: "V"
       onFinish: onVoltageChange  
+      type: "double"
     
     $(".capacity-slider").ionRangeSlider 
+      type: "double"
       postfix: "Ah/L"
       onFinish: onCapacityChange
       step: .5
