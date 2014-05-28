@@ -1,10 +1,7 @@
 Template.battery.rendered = ->
-  @capacity = 10
-  @voltage = 10
-  @anode = new Electrode name: "graphite"
 
   onVoltageChange = ({fromNumber, toNumber}) =>
-    Session.set "voltage", {gte: fromNumber, lte: toNumber}
+    SearchQuery.set "average_voltage": {$gte: fromNumber, $lte: toNumber}
     stable = fromNumber < 30
     unstable = fromNumber > 60
     mildUnstable = fromNumber > 30 and fromNumber < 60
@@ -17,18 +14,21 @@ Template.battery.rendered = ->
         .removeClass "shake-vertical"
     else if unstable
       $batt.addClass "shake shake-vertical"
-    @voltage = fromNumber
 
   onCapacityChange = ({fromNumber, toNumber}) =>
-    @capacity = fromNumber
+    SearchQuery.set "capacity_vol": {$gte: fromNumber, $lte: toNumber}
 
   $(".voltage-slider").ionRangeSlider 
     postfix: "V"
+    min: 0
+    max: 9
     onFinish: onVoltageChange  
     type: "double"
   
   $(".capacity-slider").ionRangeSlider 
     type: "double"
+    min: 50
+    max: 2000
     postfix: "Ah/L"
     onFinish: onCapacityChange
     step: .5
