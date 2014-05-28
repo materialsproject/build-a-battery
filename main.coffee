@@ -27,26 +27,9 @@ if Meteor.isClient
       else if unstable
         $batt.addClass "shake shake-vertical"
       @voltage = fromNumber
-      refreshGauge {@voltage}
 
     onCapacityChange = ({fromNumber, toNumber}) =>
       @capacity = fromNumber
-      refreshGauge {@capacity}
-
-    refreshGauge = ({voltage, capacity}) =>
-      voltage ?= @voltage
-      capacity ?= @capacity
-      gauge.refresh(voltage * capacity)
-
-    gauge = new JustGage
-      id: "meter"
-      value: @capacity * @voltage
-      min: 0
-      max: 10000
-      title: "Battery Performance"
-      label: "Energy Density"
-      levelColors: "#E2591E #E8CC2D #AEE25D #20CD5A".split " "
-    [ "titleFontColor", "valueFontColor", "showMinMax", "gaugeWidthScale", "gaugeColor", "label", "showInnerShadow", "shadowOpacity", "shadowSize", "shadowVerticalOffset", "levelColors", "levelColorsGradient", "labelFontColor", "startAnimationTime", "startAnimationType", "refreshAnimationTime", "refreshAnimationType"]
 
     $(".voltage-slider").ionRangeSlider 
       postfix: "V"
