@@ -10,8 +10,8 @@ class @CellModel
     @massFrac ?= 0.54
     @volFrac ?= 0.46
     @cellVoltage = @cathode.voltage - @anode.voltage
-    @cellCapGrav = @massFrac / (1 / @anode.cap_grav + 1 / @cathode.cap_grav)
-    @cellCapVol = @volFrac / (1 / @anode.cap_vol + 1 / @cathode.cap_vol)
+    @cellCapGrav = @massFrac / (1 / @anode.capGrav + 1 / @cathode.capGrav)
+    @cellCapVol = @volFrac / (1 / @anode.capVol + 1 / @cathode.capVol)
     @cellEDensGrav =  @cellCapGrav * @cellVoltage
     @cellEDensVol = @cellCapVol * @cellVoltage
 

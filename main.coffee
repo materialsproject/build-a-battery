@@ -8,6 +8,24 @@ if Meteor.isClient
         easing: "easeInOutSine"}, 300
 
   Meteor.autorun ->
-    ElectrodesCollection
-      .find(Session.get("query"), limit:200)
-      .fetch()
+    batteries = ElectrodesCollection
+      .find(Session.get("query"), limit:300)
+    batteries = batteries.map (batt) ->
+      anode = new Electrode name: "graphite"
+      cathode = new Electrode
+        capVol: batt.capacity_vol
+        capGrav: batt.capacity_grav
+        voltage: batt.average_voltage
+      cellModel = new CellModel {anode, cathode}
+      batt.e_density = cellModel.cellEDensGrav
+      batt
+    if @plotter?
+      @plotter.draw batteries
+    else if not _.isEmpty batteries
+      @plotter = new Plotter 
+        collection: batteries
+        yAxis: "e_density"
+        xAxis: "max_instability"
+
+
+
