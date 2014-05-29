@@ -11,7 +11,7 @@ if Meteor.isClient
     batteries = ElectrodesCollection
       .find(Session.get("query"), limit:300)
     batteries = batteries.map (batt) ->
-      anode = new Electrode name: "graphite"
+      anode = new Electrode name: Session.get("anode")
       cathode = new Electrode
         capVol: batt.capacity_vol
         capGrav: batt.capacity_grav

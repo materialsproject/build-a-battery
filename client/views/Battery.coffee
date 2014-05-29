@@ -1,10 +1,11 @@
 Template.battery.rendered = ->
+  Session.setDefault "anode", "graphite"
 
   onVoltageChange = ({fromNumber, toNumber}) =>
     SearchQuery.set "average_voltage": {$gte: fromNumber, $lte: toNumber}
-    stable = fromNumber < 30
-    unstable = fromNumber > 60
-    mildUnstable = fromNumber > 30 and fromNumber < 60
+    stable = fromNumber < 3
+    unstable = fromNumber > 6
+    mildUnstable = fromNumber > 3 and fromNumber < 6
     $batt = $ ".battery"
     if stable 
       $batt.removeClass "shake shake-vertical shake-little"
@@ -32,3 +33,7 @@ Template.battery.rendered = ->
     postfix: "Ah/L"
     onFinish: onCapacityChange
     step: .5
+
+Template.battery.events 
+  "change .anode-select": ({currentTarget}) ->
+    Session.set "anode", $(currentTarget).val()
