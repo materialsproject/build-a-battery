@@ -37,7 +37,9 @@ class @Plotter
         formatter: ->
           header = "<b class='tooltip-formula'>#{@point.options.formula}</b><br>"
           pointFormat = "<b>#{@point.options.xAxis}:</b> #{@point.x.toFixed(2)} <br/> 
-                        <b>#{@point.options.yAxis}:</b> #{@point.y.toFixed(2)}"
+                        <b>#{@point.options.yAxis}:</b> #{@point.y.toFixed(2)} <br/> 
+                        <b>Chempot:</b> #{@point.options.chempot.toFixed(2)}
+                        "
           header+pointFormat
       plotOptions:
         scatter:
@@ -59,10 +61,11 @@ class @Plotter
     htmlFormula = htmlFormula.replace(/(\))([\d\.]+)/g, "$1<sub>$2</sub>")
 
   createSeries: ->
-    data: @collection.map (item) =>
-      x: item[@xAxis]
-      y: item[@yAxis]
-      formula: @htmlFormula item.formula_discharge
+    data: @collection.map (battery) =>
+      x: battery[@xAxis]
+      y: battery[@yAxis]
+      formula: @htmlFormula battery.formula_discharge
+      chempot: @getChempot battery.muO2_data
       xAxis: @prettyName @xAxis
       yAxis: @prettyName @yAxis
     color: "rgba(237, 103, 101, 0.5)"
@@ -70,6 +73,14 @@ class @Plotter
 
   prettyName: (str) ->
     str.charAt(0).toUpperCase() + str.substring(1).replace(/_(\w)/g, (match, p1) -> " " + p1.toUpperCase())
+
+  getChempot: (muO2) ->
+    chempots = []
+    for id, nodes of muO2
+      {chempot} = _.find nodes, ({evolution}) ->
+        evolution < 0
+      chempots.push chempot
+    _.max chempots
 
 
     
