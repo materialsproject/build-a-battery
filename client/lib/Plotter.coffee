@@ -35,7 +35,7 @@ class @Plotter
       tooltip:
         useHTML: true
         formatter: ->
-          header = "<b>#{@point.options.formula}</b><br>"
+          header = "<b class='tooltip-formula'>#{@point.options.formula}</b><br>"
           pointFormat = "<b>#{@point.options.xAxis}:</b> #{@point.x.toFixed(2)} <br/> 
                         <b>#{@point.options.yAxis}:</b> #{@point.y.toFixed(2)}"
           header+pointFormat
@@ -62,7 +62,7 @@ class @Plotter
     data: @collection.map (item) =>
       x: item[@xAxis]
       y: item[@yAxis]
-      formula: @htmlFormula item.framework.reduced_cell_formula
+      formula: @htmlFormula item.formula_discharge
       xAxis: @prettyName @xAxis
       yAxis: @prettyName @yAxis
     color: "rgba(237, 103, 101, 0.5)"
