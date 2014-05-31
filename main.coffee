@@ -9,7 +9,7 @@ if Meteor.isClient
 
   Meteor.autorun ->
     batteries = ElectrodesCollection
-      .find(Session.get("query"), limit:300)
+      .find(Session.get("query"), limit:999)
     batteries = batteries.map (batt) ->
       anode = new Electrode name: Session.get("anode")
       cathode = new Electrode
