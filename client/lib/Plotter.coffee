@@ -12,14 +12,7 @@ class @Plotter
         width: 640
         style: fontFamily: "Helvetica, arial"
       legend: 
-        align: "right"
-        layout: "vertical"
-        verticalAlign: 'top'
-        x: 0
-        y: 50
-        itemHoverStyle: color: "#848485"
-        itemHiddenStyle: color: "#A2A2A3"
-        itemStyle: color: "royalblue"
+        enabled:false
       title: text: ""
       xAxis:
         title:
