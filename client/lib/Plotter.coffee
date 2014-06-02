@@ -8,7 +8,7 @@ class @Plotter
         renderTo: "results-plot"
         type: "scatter"
         zoomType: 'xy'
-        height: 400
+        height: 500
         width: 800
         style: fontFamily: "Helvetica, arial"
       legend: 
@@ -21,6 +21,19 @@ class @Plotter
         startOnTick: true
         endOnTick: true
         showLastLabel: true
+        plotBands: [
+            color: "rgba(237, 103, 101, 0.2)"
+            from: 0.1
+            to: Infinity 
+        , 
+            color: "rgba(244, 223, 142, 0.4)"
+            from: 0.05
+            to: 0.1
+        ,
+          color: "rgba(162, 244, 193, 0.3)"
+          from: -Infinity
+          to: 0.05
+        ]
       yAxis:
         title:
           text: @prettyName @yAxis
