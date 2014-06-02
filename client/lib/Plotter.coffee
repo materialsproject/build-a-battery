@@ -62,13 +62,14 @@ class @Plotter
 
   createSeries: ->
     data: @collection.map (battery) =>
+      chempot = @getChempot battery.muO2_data
       x: battery[@xAxis]
       y: battery[@yAxis]
       formula: @htmlFormula battery.formula_discharge
-      chempot: @getChempot battery.muO2_data
+      chempot: chempot
       xAxis: @prettyName @xAxis
       yAxis: @prettyName @yAxis
-    color: "rgba(237, 103, 101, 0.5)"
+      color: @getPointColor chempot
     name: "materials"
 
   prettyName: (str) ->
@@ -82,5 +83,12 @@ class @Plotter
       chempots.push chempot
     _.max chempots
 
+  getPointColor: (chempot) ->
+    color = switch 
+      when chempot > -5.8 and chempot < -4.8
+        "rgba(210, 182, 59, 0.5)"
+      when chempot < -5.8 then "rgba(98, 158, 129, 0.5)"
+      when chempot > -4.8 then "rgba(237, 103, 101, 0.5)"
+    color
 
     
