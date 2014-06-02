@@ -35,6 +35,7 @@ class @Plotter
           to: 0.05
         ]
       yAxis:
+        min: 0
         title:
           text: @prettyName @yAxis
         plotLines: [
@@ -45,7 +46,31 @@ class @Plotter
           label:
             text: "Tesla Li-ion car battery pack"
             style: 
-              fontWeight: "bold"        
+              fontWeight: "bold" 
+        ,
+          color: "#63AE87"
+          width: 3
+          value: 200
+          zIndex: 5
+          label: 
+            text: "Advanced Li-ion"
+            style: fontWeight: "bold"
+        ,
+          color: "#6361AE"
+          width: 3
+          value: 400
+          zIndex: 5
+          label: 
+            text: "Magnesium-ion"
+            style: fontWeight: "bold"
+        ,
+          color: "#ED6765"
+          width: 3
+          value: 50
+          zIndex: 5
+          label: 
+            text: "Lead-Acid"
+            style: fontWeight: "bold"
         ]
       credits: enabled: false
       tooltip:
