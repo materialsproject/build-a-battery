@@ -9,7 +9,7 @@ class @Plotter
         type: "scatter"
         zoomType: 'xy'
         height: 400
-        width: 640
+        width: 800
         style: fontFamily: "Helvetica, arial"
       legend: 
         enabled:false
@@ -24,6 +24,16 @@ class @Plotter
       yAxis:
         title:
           text: @prettyName @yAxis
+        plotLines: [
+          color: "#5EAFEF"
+          width: 3
+          value: 110
+          zIndex: 5
+          label:
+            text: "Tesla Li-ion car battery pack"
+            style: 
+              fontWeight: "bold"        
+        ]
       credits: enabled: false
       tooltip:
         useHTML: true
@@ -84,4 +94,3 @@ class @Plotter
       when chempot > -4.8 then "rgba(237, 103, 101, 0.5)"
     color
 
-    
