@@ -8,8 +8,8 @@ class @Plotter
         renderTo: "results-plot"
         type: "scatter"
         zoomType: 'xy'
-        height: 500
-        width: 800
+        height: 400
+        width: 700
         style: fontFamily: "Helvetica, arial"
       legend: 
         enabled:false
