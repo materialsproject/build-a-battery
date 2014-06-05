@@ -79,7 +79,8 @@ class @Plotter
           header = "<b class='tooltip-formula'>#{@point.options.formula}</b><br>"
           pointFormat = "<b>#{@point.options.xAxis}:</b> #{@point.x.toFixed(2)} <br/> 
                         <b>#{@point.options.yAxis}:</b> #{@point.y.toFixed(2)} <br/> 
-                        <b>Chempot:</b> #{@point.options.chempot.toFixed(2)}
+                        <b>Chempot:</b> #{@point.options.chempot.toFixed(2)} <br/>
+                        <b>Voltage:</b> #{@point.options.voltage.toFixed(2)}
                         "
           header+pointFormat
       plotOptions:
@@ -108,9 +109,10 @@ class @Plotter
       y: battery[@yAxis]
       formula: @htmlFormula battery.formula_discharge
       chempot: chempot
+      voltage: battery.average_voltage
       xAxis: @prettyName @xAxis
       yAxis: @prettyName @yAxis
-      color: @getPointColor chempot
+      color: @getPointColor chempot, battery.average_voltage
     name: "materials"
 
   prettyName: (str) ->
@@ -124,11 +126,16 @@ class @Plotter
       chempots.push chempot
     _.max chempots
 
-  getPointColor: (chempot) ->
+  getPointColor: (chempot, voltage) ->
+    colors = 
+      red: "rgba(237, 103, 101, 0.5)"
+      yellow: "rgba(210, 182, 59, 0.5)"
+      green: "rgba(98, 158, 129, 0.5)"
     color = switch 
+      when voltage > 4.8 then colors.red
       when chempot > -5.8 and chempot < -4.8
-        "rgba(210, 182, 59, 0.5)"
-      when chempot < -5.8 then "rgba(98, 158, 129, 0.5)"
-      when chempot > -4.8 then "rgba(237, 103, 101, 0.5)"
+        colors.yellow
+      when chempot < -5.8 then colors.green
+      when chempot > -4.8 then colors.red
     color
 
