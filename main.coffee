@@ -7,6 +7,10 @@ if Meteor.isClient
       $("#about-content").toggle "blind", {
         easing: "easeInOutSine"}, 300
 
+  Template.header.events
+    "click .header": ({currentTarget}) ->
+      $(currentTarget).toggleClass("active")
+
   Meteor.autorun ->
     batteries = ElectrodesCollection
       .find(Session.get("query"), limit:999)
