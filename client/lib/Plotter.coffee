@@ -84,7 +84,8 @@ class @Plotter
           pointFormat = "<b>#{@point.options.xAxis}:</b> #{@point.x.toFixed(2)} <br/> 
                         <b>#{@point.options.yAxis}:</b> #{@point.y.toFixed(2)} <br/> 
                         <b>Chempot:</b> #{@point.options.chempot.toFixed(2)} <br/>
-                        <b>Voltage:</b> #{@point.options.voltage.toFixed(2)}
+                        <b>Voltage:</b> #{@point.options.voltage.toFixed(2)} <br />
+                        <b>CPU Seconds:</b> #{Math.floor @point.options.cpuTime} <br />
                         "
           header+pointFormat
       plotOptions:
@@ -116,6 +117,7 @@ class @Plotter
       voltage: battery.average_voltage
       xAxis: @prettyName @xAxis
       yAxis: @prettyName @yAxis
+      cpuTime: battery.total_cpu_time
       color: @getPointColor chempot, battery.average_voltage
     name: "materials"
 

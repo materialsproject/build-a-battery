@@ -31,19 +31,21 @@ a{ color: @linkColor; }
 
 .about{
   padding: 10px 0;
-  font-family: "Arvo";
-  text-transform: uppercase;
-  letter-spacing: 1pt;
   border-top: 1px solid darken(@red, 20%);
   border-bottom: 1px solid darken(@red, 20%);
   background: lighten(@red, 30%);
   cursor: pointer;
+  font-family: "Arvo";
+
+  a{
+    text-transform: uppercase;
+    letter-spacing: 1pt;
+  }
 
   #about-content{ 
     border-top: 1px solid darken(@red, 10%);
     margin-top: 10px;
     display: none;
-    font-family: "Arvo";
 
     p{ 
       font-size: 14px; 
