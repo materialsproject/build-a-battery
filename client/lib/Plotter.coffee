@@ -115,7 +115,7 @@ class @Plotter
       voltage: battery.average_voltage
       xAxis: @prettyName @xAxis
       yAxis: @prettyName @yAxis
-      cpuTime: battery.total_cpu_time
+      cpuTime: @toHHMMSS battery.total_cpu_time
       color: @getPointColor chempot, battery.average_voltage
     name: "materials"
 
@@ -139,3 +139,14 @@ class @Plotter
       when chempot > -4.8 then @colors.red
     color
 
+  toHHMMSS: (seconds) ->
+    seconds = Math.floor seconds
+    seconds = parseInt(seconds, 10) 
+    hours = Math.floor(seconds / 3600)
+    minutes = Math.floor((seconds - (hours * 3600)) / 60)
+    seconds = seconds - (hours * 3600) - (minutes * 60)
+    hours = "0" + hours  if hours < 10
+    minutes = "0" + minutes  if minutes < 10
+    seconds = "0" + seconds  if seconds < 10
+    time = hours + ":" + minutes + ":" + seconds
+    time
