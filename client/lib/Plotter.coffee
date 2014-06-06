@@ -95,7 +95,10 @@ class @Plotter
         series: 
           events:
             click: @onPointSelect 
-              
+          marker: states: select:
+            lineColor: "#6AAAC5" 
+            fillColor: "#88CBE3"
+            radius:8
       series: [@createSeries()]
 
   htmlFormula: (formula) ->

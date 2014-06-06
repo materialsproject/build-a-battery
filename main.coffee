@@ -32,6 +32,7 @@ if Meteor.isClient
         xAxis: "max_instability"
         onPointSelect: ({point}) -> 
           battery = {}
+          point.select()
           for key, value of point.options
             battery[key] = if _.isNumber(value) then value.toFixed(2) else value
             if key is "color"
