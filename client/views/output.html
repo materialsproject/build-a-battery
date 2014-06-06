@@ -2,6 +2,7 @@
   <div class="row">
     <center>
       <div id="results-plot"></div>
+		{{#if battery}}
       <div id="point-stats">
         <h1 style="color:{{battery.color}}">{{{battery.formula}}}</h1>
         <dl class="dl-horizontal">
@@ -17,6 +18,7 @@
         	<dd>{{battery.chempot}}</dd>
         </dl>
       </div>
+	 	{{/if}}
     </center>
   </div>
 </template>
