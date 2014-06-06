@@ -1,4 +1,4 @@
-@ElectrodesCollection = new Meteor.Collection("electrodes")
+@ElectrodesCollection = new Meteor.Collection("electrodes_timing")
 
 
 if Meteor.isClient  
