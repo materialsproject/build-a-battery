@@ -1,0 +1,22 @@
+<template name="output">
+  <div class="row">
+    <center>
+      <div id="results-plot"></div>
+      <div id="point-stats">
+        <h1 style="color:{{battery.color}}">{{{battery.formula}}}</h1>
+        <dl class="dl-horizontal">
+      		<dt>CPU Seconds</dt>
+        	<dd>{{battery.cpuTime}}</dd>
+      		<dt>Voltage</dt>
+        	<dd>{{battery.voltage}} V</dd>
+      		<dt>Energy Density</dt>
+        	<dd>{{battery.y}} Wh/k<sup>-1</sup></dd>
+      		<dt>Max Instability</dt>
+        	<dd>{{battery.x}}</dd>
+      		<dt>Chempot</dt>
+        	<dd>{{battery.chempot}}</dd>
+        </dl>
+      </div>
+    </center>
+  </div>
+</template>

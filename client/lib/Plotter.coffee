@@ -1,5 +1,5 @@
 class @Plotter 
-  constructor: ({@collection, @xAxis, @yAxis}) ->
+  constructor: ({@collection, @xAxis, @yAxis, @onPointSelect}) ->
     @colors = 
       red: "rgba(237, 103, 101, 0.5)"
       yellow: "rgba(210, 182, 59, 0.5)"
@@ -78,16 +78,7 @@ class @Plotter
         ]
       credits: enabled: false
       tooltip:
-        useHTML: true
-        formatter: ->
-          header = "<b class='tooltip-formula'>#{@point.options.formula}</b><br>"
-          pointFormat = "<b>#{@point.options.xAxis}:</b> #{@point.x.toFixed(2)} <br/> 
-                        <b>#{@point.options.yAxis}:</b> #{@point.y.toFixed(2)} <br/> 
-                        <b>Chempot:</b> #{@point.options.chempot.toFixed(2)} <br/>
-                        <b>Voltage:</b> #{@point.options.voltage.toFixed(2)} <br />
-                        <b>CPU Seconds:</b> #{Math.floor @point.options.cpuTime} <br />
-                        "
-          header+pointFormat
+        enabled: false
       plotOptions:
         scatter:
           marker:
@@ -101,6 +92,10 @@ class @Plotter
             hover:
               marker:
                 enabled: false
+        series: 
+          events:
+            click: @onPointSelect 
+              
       series: [@createSeries()]
 
   htmlFormula: (formula) ->

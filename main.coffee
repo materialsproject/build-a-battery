@@ -30,6 +30,13 @@ if Meteor.isClient
         collection: batteries
         yAxis: "e_density"
         xAxis: "max_instability"
+        onPointSelect: ({point}) -> 
+          battery = {}
+          for key, value of point.options
+            battery[key] = if _.isNumber(value) then value.toFixed(2) else value
+            if key is "color"
+              battery[key] = value.replace "0.5", "1"
+          Session.set "battery", battery
 
 
 
