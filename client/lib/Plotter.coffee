@@ -108,15 +108,20 @@ class @Plotter
   createSeries: ->
     data: @collection.map (battery) =>
       chempot = @getChempot battery.muO2_data
+      pointColor = @getPointColor chempot, battery.average_voltage
+      safety = switch 
+        when pointColor is @colors.red then "unsafe"
+        when pointColor is @colors.yellow then "moderate"
+        when pointColor is @colors.green then "safe"
       x: battery[@xAxis]
       y: battery[@yAxis]
       formula: @htmlFormula battery.formula_discharge
-      chempot: chempot
+      safety: safety
       voltage: battery.average_voltage
       xAxis: @prettyName @xAxis
       yAxis: @prettyName @yAxis
       cpuTime: @toHHMMSS battery.total_cpu_time
-      color: @getPointColor chempot, battery.average_voltage
+      color: pointColor
     name: "materials"
 
   prettyName: (str) ->
