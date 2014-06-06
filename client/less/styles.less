@@ -105,9 +105,17 @@ a{ color: @linkColor; }
   text-align: center;
   color: @white;
   
+  .batt-label{
+    margin-bottom: 1em;
+  }
+
   .irs{
     width: 100px;
     margin: 0 auto;
+
+    &:not(:first-of-type){
+      margin-top: 25px;
+    }
   }
 
   .charge{

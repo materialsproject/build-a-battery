@@ -1,5 +1,9 @@
 class @Plotter 
   constructor: ({@collection, @xAxis, @yAxis}) ->
+    @colors = 
+      red: "rgba(237, 103, 101, 0.5)"
+      yellow: "rgba(210, 182, 59, 0.5)"
+      green: "rgba(98, 158, 129, 0.5)"
     @draw @collection
 
   draw: (@collection) ->
@@ -127,15 +131,11 @@ class @Plotter
     _.max chempots
 
   getPointColor: (chempot, voltage) ->
-    colors = 
-      red: "rgba(237, 103, 101, 0.5)"
-      yellow: "rgba(210, 182, 59, 0.5)"
-      green: "rgba(98, 158, 129, 0.5)"
     color = switch 
-      when voltage > 4.8 then colors.red
+      when voltage > 4.8 then @colors.red
       when chempot > -5.8 and chempot < -4.8
-        colors.yellow
-      when chempot < -5.8 then colors.green
-      when chempot > -4.8 then colors.red
+        @colors.yellow
+      when chempot < -5.8 then @colors.green
+      when chempot > -4.8 then @colors.red
     color
 
