@@ -5,18 +5,32 @@
 		{{#if battery}}
       <div id="point-stats">
         <h1 style="color:{{battery.color}}">{{{battery.formula}}}</h1>
-        <dl class="dl-horizontal">
-      		<dt>CPU Seconds</dt>
-        	<dd>{{battery.cpuTime}}</dd>
-      		<dt>Voltage</dt>
-        	<dd>{{battery.voltage}} V</dd>
-      		<dt>Energy Density</dt>
-        	<dd>{{battery.y}} Wh/k<sup>-1</sup></dd>
-      		<dt>Max Instability</dt>
-        	<dd>{{battery.x}}</dd>
-      		<dt>Chempot</dt>
-        	<dd>{{battery.chempot}}</dd>
-        </dl>
+        <div class="span2 stat offset1">
+      		<h3 class="property">CPU Seconds</h3>
+        	<div class="value">{{battery.cpuTime}}</div>
+        </div>
+        <div class="span2 stat">
+      		<h3 class="property">Voltage</h3>
+        	<div class="value">
+        		{{battery.voltage}} 
+	        	<span class="units">V</span>
+        	</div>
+        </div>
+        <div class="span2 stat">
+      		<h3 class="property">Energy Density</h3>
+        	<div class="value">
+        		{{battery.y}}
+	      		<span class="units">Wh/k<sup>-1</sup></span>
+        	</div>
+        </div>
+        <div class="span2 stat">
+      		<h3 class="property">Max Instability</h3>
+        	<div class="value">{{battery.x}}</div>
+        </div>
+        <div class="span2 stat">
+      		<h3 class="property">Chempot</h3>
+        	<div class="value">{{battery.chempot}}</div>
+        </div>
       </div>
 	 	{{/if}}
     </center>

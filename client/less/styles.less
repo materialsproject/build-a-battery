@@ -30,9 +30,31 @@ a{ color: @linkColor; }
 }
 
 #point-stats{
+  .stat {
+    border:1px solid #eee;
+    border-radius: 5px;
+    padding-bottom: 10px;
+  }
 
-  dl{
-    max-width: 340px;    
+  .property{
+    line-height: 20px;
+    font-weight: 400;
+    color:#aaa;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1pt;
+    font-family: "Arvo";
+  }
+
+  .value{
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 500;
+
+
+    .units{ 
+      font-size: 14px
+    }
   }
 }
 
